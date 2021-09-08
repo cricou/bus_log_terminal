@@ -1,7 +1,7 @@
 
 # Odoo bus log terminal
 
-This widget is an logger terminal using bus service from Odoo.
+This widget is a logger terminal using bus service from Odoo.
 
 ## Usage
 
