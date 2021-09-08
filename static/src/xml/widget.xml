@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="BusLogTerminal">
+        <div>
+            <div id="bus_log_terminal">
+            </div>
+        </div>
+    </t>
+</templates>

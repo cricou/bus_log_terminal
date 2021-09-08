@@ -1,0 +1,170 @@
+/**
+ * Copyright (c) 2014 The xterm.js authors. All rights reserved.
+ * Copyright (c) 2012-2013, Christopher Jeffrey (MIT License)
+ * https://github.com/chjj/term.js
+ * @license MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * Originally forked from (with the author's permission):
+ *   Fabrice Bellard's javascript vt100 for jslinux:
+ *   http://bellard.org/jslinux/
+ *   Copyright (c) 2011 Fabrice Bellard
+ *   The original design remains. The terminal itself
+ *   has been extended to include xterm CSI codes, among
+ *   other features.
+ */
+
+/**
+ *  Default styles for xterm.js
+ */
+
+.xterm {
+    position: relative !important;
+    user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.xterm.focus,
+.xterm:focus {
+    outline: none !important;
+}
+
+.xterm .xterm-helpers {
+    position: absolute !important;
+    top: 0 !important;
+    /**
+     * The z-index of the helpers must be higher than the canvases in order for
+     * IMEs to appear on top.
+     */
+    z-index: 5 !important;
+}
+
+.xterm .xterm-helper-textarea {
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 0 !important;
+    /* Move textarea out of the screen to the far left, so that the cursor is not visible */
+    position: absolute !important;
+    opacity: 0 !important;
+    left: -9999em !important;
+    top: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    z-index: -5 !important;
+    /** Prevent wrapping so the IME appears against the textarea at the correct position */
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    resize: none !important;
+}
+
+.xterm .composition-view {
+    /* TODO: Composition position got messed up somewhere */
+    background: #000 !important;
+    color: #FFF !important;
+    display: none !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    z-index: 1 !important;
+}
+
+.xterm .composition-view.active {
+    display: block !important;
+}
+
+.xterm .xterm-viewport {
+    /* On OS X this is required in order for the scroll bar to appear fully opaque */
+    background-color: #000 !important;
+    overflow-y: scroll !important;
+    cursor: default !important;
+    position: absolute !important;
+    right: 0 !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+.xterm .xterm-screen {
+    position: relative !important;
+}
+
+.xterm .xterm-screen canvas {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+
+.xterm .xterm-scroll-area {
+    visibility: hidden !important;
+}
+
+.xterm-char-measure-element {
+    display: inline-block !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -9999em !important;
+    line-height: normal !important;
+}
+
+.xterm {
+    cursor: text !important;
+}
+
+.xterm.enable-mouse-events {
+    /* When mouse events are enabled (eg. tmux), revert to the standard pointer cursor */
+    cursor: default !important;
+}
+
+.xterm.xterm-cursor-pointer {
+    cursor: pointer !important;
+}
+
+.xterm.column-select.focus {
+    /* Column selection mode */
+    cursor: crosshair !important;
+}
+
+.xterm .xterm-accessibility,
+.xterm .xterm-message {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 10 !important;
+    color: transparent !important;
+}
+
+.xterm .live-region {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+.xterm-dim {
+    opacity: 0.5 !important;
+}
+
+.xterm-underline {
+    text-decoration: underline !important;
+}
